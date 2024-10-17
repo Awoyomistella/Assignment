@@ -1,0 +1,96 @@
+#  1. Quiz questions stored in a list of dictionaries
+quiz = [
+    {
+        "question": "What is the capital of France?",
+        "options": ["A. Paris", "B. Berlin", "C. Madrid", "D. Rome"],
+        "answer": "A"
+    },
+    {
+        "question": "Which planet is known as the Red Planet?",
+        "options": ["A. Earth", "B. Mars", "C. Jupiter", "D. Venus"],
+        "answer": "B"
+    },
+    {
+        "question": "What is the largest ocean on Earth?",
+        "options": ["A. Atlantic", "B. Indian", "C. Pacific", "D. Arctic"],
+        "answer": "C"
+    }
+]
+
+# Initialize score
+score = 0
+
+# Ask each question
+for q in quiz:
+    print(q["question"])
+    for option in q["options"]:
+        print(option)
+    answer = input("Enter your answer (A, B, C, or D): ").upper()
+    
+    # Check if the answer is correct
+    if answer == q["answer"]:
+        print("Correct!\n")
+        score += 1
+    else:
+        print(f"Wrong! The correct answer is {q['answer']}.\n")
+
+# Final score
+print(f"Your final score is: {score}/{len(quiz)}")
+
+
+# 2.  Initialize an empty dictionary for the grade book
+grade_book = {}
+
+# Function to add or update student grades
+def add_update_grade(name, grade):
+    grade_book[name] = grade
+    print(f"Grade for {name} has been added/updated.")
+
+# Function to remove a student from the grade book
+def remove_student(name):
+    if name in grade_book:
+        del grade_book[name]
+        print(f"{name} has been removed.")
+    else:
+        print(f"{name} not found in the grade book.")
+
+# Function to print all students and their grades
+def print_grades():
+    if not grade_book:
+        print("The grade book is empty.")
+    else:
+        for student, grade in grade_book.items():
+            print(f"{student}: {grade}")
+
+# Example usage
+add_update_grade("Alice", 85)
+add_update_grade("Bob", 92)
+print_grades()
+
+remove_student("Alice")
+print_grades()
+
+3. List of 10 numbers
+numbers = [12, 5, 8, 23, 7, 15, 4, 11, 18, 20]
+
+# Compute sum, average, minimum, and maximum
+total_sum = sum(numbers)
+average = total_sum / len(numbers)
+minimum = min(numbers)
+maximum = max(numbers)
+
+# Print results
+print(f"Sum: {total_sum}")
+print(f"Average: {average}")
+print(f"Minimum: {minimum}")
+print(f"Maximum: {maximum}")
+
+# 4. Function to calculate GCD
+def gcd(a, b):
+    while b:
+        a, b = b, a % b
+    return a
+
+# Test the function with different inputs
+print(gcd(56, 98))  # Output: 14
+print(gcd(48, 18))  # Output: 6
